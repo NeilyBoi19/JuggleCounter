@@ -34,12 +34,12 @@
         }
 
         .hero {
-            min-height: 72vh;
+            min-height: 52vh;
             display: grid;
             place-items: center;
             overflow: hidden;
             position: relative;
-            padding: 5rem 1.5rem;
+            padding: 3rem 1.5rem;
             color: white;
             text-align: center;
             background:
@@ -213,6 +213,21 @@
             color: white;
         }
 
+        .bounce-estimate {
+            border-left: 0;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            box-shadow: 0 14px 32px rgba(35, 73, 169, 0.22);
+            text-align: center;
+        }
+
+        .bounce-estimate p {
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
         footer {
             padding: 2.5rem 1.25rem;
             color: var(--muted);
@@ -238,9 +253,18 @@
             background: var(--ink);
         }
 
+        .result-graph {
+            display: block;
+            grid-column: 1 / -1;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+        }
+
         @media (max-width: 700px) {
             .hero {
-                min-height: 65vh;
+                min-height: 46vh;
+                padding: 2.5rem 1.25rem;
             }
 
             .project-section {
@@ -258,10 +282,9 @@
     <header class="hero">
         <div class="hero-content">
             <p class="eyebrow">Computer Vision Project</p>
-            <h1>Count Kick Ups</h1>
+            <h1>Ball-istics</h1>
             <p class="hero-description">
-                A video-based ball tracker that follows a juggling ball frame by frame
-                and turns motion into useful data.
+                Ball Statistics from video-based frame by frame ball tracking.
             </p>
             <a class="button" href="#problem">Explore the project</a>
         </div>
@@ -325,31 +348,9 @@
             </div>
         </section>
 
-        <section class="project-section" id="input-video">
-            <div class="section-label">
-                <span class="section-number">03 / THE INPUT</span>
-                <h2>Input Video</h2>
-            </div>
-            <div class="section-content">
-                <p>
-                    This is the original footage before the ball detection algorithm is applied.
-                </p>
-                <p>
-                    Add the unprocessed video to this project as <code>InputVideo.mp4</code>
-                    to display it here.
-                </p>
-                <div class="pipeline">
-                    <video class="result-video" controls playsinline preload="metadata">
-                        <source src="DubiJuggle.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                </div>
-            </div>
-        </section>
-
         <section class="project-section" id="results">
             <div class="section-label">
-                <span class="section-number">04 / THE OUTCOME</span>
+                <span class="section-number">03 / THE OUTCOME</span>
                 <h2>Results</h2>
             </div>
             <div class="section-content">
@@ -370,14 +371,21 @@
                     </p>
                 </div>
                 <div class="pipeline">
-                <img src="BallBounceGraph.png" alt = "Graph of Ball Bouncing" width = "424" height = "360">
-                </div>
-                    <div class="pipeline">
                     <video class="result-video" controls playsinline preload="metadata">
                         <source src="DubiJuggle.mp4" type="video/mp4">
                         Your browser does not support HTML video.
                     </video>
-                    </div>
+                    <video class="result-video" controls playsinline preload="metadata">
+                        <source src="tracked_ball_output.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+                <div class="pipeline">
+                    <img class="result-graph" src="BallBounceGraph2.png" alt="Graph of ball bouncing">
+                </div>
+                <div class="result-card bounce-estimate">
+                    <p><strong>Estimated Number of Bounces: 7</strong></p>
+                </div>
             </div>
         </section>
     </main>
