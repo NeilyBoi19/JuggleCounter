@@ -229,6 +229,15 @@
             font-size: 0.9em;
         }
 
+        .result-video {
+            display: block;
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            border-radius: 14px;
+            background: var(--ink);
+        }
+
         @media (max-width: 700px) {
             .hero {
                 min-height: 65vh;
@@ -316,9 +325,31 @@
             </div>
         </section>
 
+        <section class="project-section" id="input-video">
+            <div class="section-label">
+                <span class="section-number">03 / THE INPUT</span>
+                <h2>Input Video</h2>
+            </div>
+            <div class="section-content">
+                <p>
+                    This is the original footage before the ball detection algorithm is applied.
+                </p>
+                <p>
+                    Add the unprocessed video to this project as <code>InputVideo.mp4</code>
+                    to display it here.
+                </p>
+                <div class="pipeline">
+                    <video class="result-video" controls playsinline preload="metadata">
+                        <source src="DubiJuggle.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                </div>
+            </div>
+        </section>
+
         <section class="project-section" id="results">
             <div class="section-label">
-                <span class="section-number">03 / THE OUTCOME</span>
+                <span class="section-number">04 / THE OUTCOME</span>
                 <h2>Results</h2>
             </div>
             <div class="section-content">
@@ -341,12 +372,12 @@
                 <div class="pipeline">
                 <img src="BallBounceGraph.png" alt = "Graph of Ball Bouncing" width = "424" height = "360">
                 </div>
-<!--                <div class="pipeline">
-                    <video width="360" height="640">
-                        <source src="ballvideo2.mp4" type="video/mp4">
-                        not supported
+                    <div class="pipeline">
+                    <video class="result-video" controls playsinline preload="metadata">
+                        <source src="DubiJuggle.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
                     </video>
-                    </div> -->
+                    </div>
             </div>
         </section>
     </main>
