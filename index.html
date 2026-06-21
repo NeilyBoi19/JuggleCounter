@@ -261,6 +261,30 @@
             border-radius: 14px;
         }
 
+        .about-card {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--card);
+            box-shadow: 0 10px 28px rgba(29, 49, 85, 0.05);
+        }
+
+        .about-photo {
+            width: 220px;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 18px;
+            background: #e8ecf4;
+        }
+
+        .about-card p {
+            margin: 0;
+        }
+
         @media (max-width: 700px) {
             .hero {
                 min-height: 46vh;
@@ -274,6 +298,16 @@
 
             .pipeline {
                 grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-photo {
+                width: 100%;
+                height: auto;
+                max-height: 320px;
             }
         }
     </style>
@@ -401,6 +435,25 @@
                 </div>
                 <div class="result-card bounce-estimate">
                     <p><strong>Estimated Number of Bounces: 8</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section" id="about">
+            <div class="section-label">
+                <span class="section-number">04 / ABOUT ME</span>
+                <h2>About Me</h2>
+            </div>
+            <div class="section-content">
+                <div class="about-card">
+                    <img class="about-photo" src="Ball-isticsAbtMe2.png" alt="About me photo">
+                    <p>
+                        Hi, I'm Neil, currently a rising sophomore at Uni High School in Champaign, Il.
+                        My favorite thing to do is play soccer, but I
+                        also enjoy playing guitar, hanging out with friends, and traveling the world.
+                        On the academic side, I like puzzles, math, and programming, especially when it
+                        helps in soccer.
+                    </p>
                 </div>
             </div>
         </section>
