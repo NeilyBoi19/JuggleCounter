@@ -189,6 +189,43 @@
             color: white;
         }
 
+        .results-section {
+            display: block;
+            width: min(1280px, calc(100vw - 2rem));
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .results-section .section-label {
+            margin-bottom: 2rem;
+        }
+
+        .results-section .section-content > p {
+            max-width: 760px;
+        }
+
+        .result-module {
+            margin-top: 2.5rem;
+            padding: clamp(1rem, 2vw, 1.5rem);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--card);
+            box-shadow: 0 12px 34px rgba(29, 49, 85, 0.07);
+        }
+
+        .result-module-grid {
+            display: grid;
+            grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.3fr);
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .video-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
         .bounce-estimate {
             border-left: 0;
             border-radius: 14px;
@@ -223,7 +260,6 @@
         .result-video {
             display: block;
             width: 100%;
-            max-width: 360px;
             height: auto;
             border-radius: 14px;
             background: var(--ink);
@@ -231,10 +267,19 @@
 
         .result-graph {
             display: block;
-            grid-column: 1 / -1;
             width: 100%;
             height: auto;
             border-radius: 14px;
+        }
+
+        .pseudocode-image {
+            display: block;
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 860px;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(29, 49, 85, 0.08);
         }
 
         .about-card {
@@ -276,6 +321,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .result-module-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-pair {
+                grid-template-columns: 1fr;
+            }
+
             .about-card {
                 grid-template-columns: 1fr;
             }
@@ -308,14 +361,16 @@
             </div>
             <div class="section-content">
                 <p>
-                    Counting juggling throws by hand is distracting, inconsistent, and
-                    difficult to repeat when reviewing a video.
+                    One way for an athlete to improve their game at home is to record
+                    themselves at home, and watch back the footage. This can be further
+                    enhanced with recorded analytics about the motion of the ball.
+
                 </p>
                 <p>
                     This project explores whether computer vision can reliably locate a
-                    ball in recorded footage and follow it throughout a juggling sequence.
+                    ball in recorded footage and follow it throughout a motion sequence.
                     The goal is to create a foundation for automatically measuring throws,
-                    catches, and patterns without interrupting the juggler.
+                    catches, and patterns without interrupting the person practicing.
                 </p>
             </div>
         </section>
@@ -339,12 +394,12 @@
                     <article class="step">
                         <strong>Step 2</strong>
                         <h3>Select the ball</h3>
-                        <p>Use a click to identify the target and initialize its position.</p>
+                        <p>Use a click to identify the ball and initialize its position.</p>
                     </article>
                     <article class="step">
                         <strong>Step 3</strong>
                         <h3>Track motion</h3>
-                        <p>Update the ball's location as it moves through each new frame.</p>
+                        <p>Find the ball's location as it moves through each new frame.</p>
                     </article>
                     <article class="step">
                         <strong>Step 4</strong>
@@ -353,12 +408,12 @@
                     </article>
                 </div>
                 <div class="pipeline">
-                <img class = "result-graph" src="PseudoCodeLatex.png" alt = "Basic Idea for Code" width="1318" height="622">
+                    <img class="pseudocode-image" src="PseudoCodeLatex.png" alt="Basic idea for code">
                 </div>
             </div>
         </section>
 
-        <section class="project-section" id="results">
+        <section class="project-section results-section" id="results">
             <div class="section-label">
                 <span class="section-number">03 / THE OUTCOME</span>
                 <h2>Results</h2>
@@ -376,48 +431,65 @@
                 <div class="result-card">
                     <p>
                         <strong>Key result:</strong> video frames can be converted into a
-                        continuous motion path, creating the data needed for an automatic
-                        juggle counter.
+                        continuous motion path, creating the data needed for motion analytics.
                     </p>
                 </div>
-                <div class="pipeline">
-                    <video class="result-video" controls playsinline preload="metadata">
-                        <source src="DubiJuggle.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                    <video class="result-video" controls playsinline preload="metadata">
-                        <source src="DubiJuggleTracked.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                </div>
-                <div class="pipeline">
-                    <img class="result-graph" src="BallBounceGraph2.png" alt="Graph of ball bouncing">
-                </div>
-                <div class="result-card bounce-estimate">
-                    <p><strong>Estimated Number of Bounces: 7</strong></p>
-                </div>
-                 <div class="pipeline">
-                    <video class="result-video" controls playsinline preload="metadata">
-                        <source src="DubiBasketball.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                    <video class="result-video" controls playsinline preload="metadata">
-                        <source src="DubiBasketballTracked.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
-                </div>
-                <div class="pipeline">
-                    <img class="result-graph" src="BasketballBounceGraph.png" alt="Graph of ball bouncing">
-                </div>
-                <div class="result-card bounce-estimate">
-                    <p><strong>Estimated Number of Bounces: 8</strong></p>
-                </div>
-                <div class="pipeline">
-                <video class="result-video" controls playsinline preload="metadata">
-                        <source src="tracked_ball_output.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>
+                <article class="result-module">
+                    <div class="result-module-grid">
+                        <div class="video-pair">
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="DubiJuggle.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="DubiJuggleTracked.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <img class="result-graph" src="BallBounceGraph2.png" alt="Graph of ball bouncing">
                     </div>
+                    <div class="result-card bounce-estimate">
+                        <p><strong>Estimated Number of Bounces: 7</strong></p>
+                    </div>
+                </article>
+
+                <article class="result-module">
+                    <div class="result-module-grid">
+                        <div class="video-pair">
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="DubiBasketball.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="DubiBasketballTracked.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <img class="result-graph" src="BasketballBounceGraph.png" alt="Graph of basketball bouncing">
+                    </div>
+                    <div class="result-card bounce-estimate">
+                        <p><strong>Estimated Number of Bounces: 8</strong></p>
+                    </div>
+                </article>
+
+                <article class="result-module">
+                    <div class="result-module-grid">
+                        <div class="video-pair">
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="BasketballShot1.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                            <video class="result-video" controls playsinline preload="metadata">
+                                <source src="tracked_ball_output.mp4" type="video/mp4">
+                                Your browser does not support HTML video.
+                            </video>
+                        </div>
+                        <img class="result-graph" src="BasketballShot1Graph.png" alt="Graph of basketball shot bouncing">
+                    </div>
+                    <div class="result-card bounce-estimate">
+                        <p><strong>Estimated Number of Bounces: 4</strong></p>
+                    </div>
+                </article>
             </div>
         </section>
 
